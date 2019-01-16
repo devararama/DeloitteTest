@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+.header{
+  /*  background-color: #20272a;*/
+    box-sizing: border-box;
+    display: block;
+    padding: 0;
+    height: 70px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9997;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+}
+.footer{
+  /*  background-color: #20272a;*/
+    box-sizing: border-box;
+    display: block;
+    padding: 0;
+    height: 70px;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9997;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+}
+a{
+    color: white;
+    text-align: center;
+}
+
+.sidebar{
+    background-color: whitesmoke;
+    min-height: 500px;
+    max-height: 600px
+}
+.content{
+    background-color: whitesmoke;
+}
+
+
+
+
+.margin-header{
+    margin-top:6%;
+}

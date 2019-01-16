@@ -1,0 +1,79 @@
+
+  <div class="ui-g-12 ui-md-10 margin-header ">
+      <p-table [columns]="cols" [value]="EmployeeList" selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
+          <ng-template pTemplate="caption">
+              List of EmployeeList
+          </ng-template>
+          <ng-template pTemplate="header" let-columns>
+              <tr>
+                  <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                      {{col.header}}
+                      <p-sortIcon [field]="col.field"></p-sortIcon>
+                  </th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+              <tr [pSelectableRow]="rowData">
+                  <td *ngFor="let col of columns">
+                     <span *ngIf="col.field ==='title' && rowData[col.field]"> {{displayData(rowData[col.field])}}</span>
+                     <span *ngIf="col.field !=='title' && rowData[col.field]"> {{rowData[col.field]}}</span>
+                  </td>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="summary" let-rowData>
+              <div style="text-align:left">
+                  <button type="button" pButton icon="fa fa-plus" (click)="showDialogToAdd()" label="Add"></button>
+              </div>
+          </ng-template>    
+      </p-table>
+      
+      <p-dialog header="Employee Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"  [style]="{width: '300px'}">
+        
+   <form novalidate #f="ngForm"  >        
+        <div class="ui-g ui-fluid" *ngIf="employee">
+              <div class="ui-g-12">
+                  <div class="ui-g-4">
+                      <label for="Id">ID</label>
+                  </div>
+                  <div class="ui-g-8">
+                      <input *ngIf="employee" name="Id" #Id="ngModel"    pInputText id="id" [(ngModel)]="employee.id" pattern="[a-zA-Z0-9]+[a-zA-Z0-9 ]+" required title="No space allowed at starting "/>
+                  </div>
+              </div>
+              <div class="ui-g-12">
+                  <div class="ui-g-4">
+                      <label for="Name">Name</label>
+                  </div>
+                  <div class="ui-g-8">
+                      <input *ngIf="employee" name="name" #name="ngModel"   pInputText id="name" [(ngModel)]="employee.name" pattern="[a-zA-Z0-9]+[a-zA-Z0-9 ]+" required title="No space allowed at starting "/>
+                  </div>
+              </div>
+              <div class="ui-g-12">
+                  <div class="ui-g-4">
+                      <label for="Age">Age</label>
+                  </div>
+                  <div class="ui-g-8">
+                      <input *ngIf="employee" name="age" #age="ngModel" type="number"   pInputText id="age" [(ngModel)]="employee.age" required/>
+                  </div>
+              </div>
+              <div class="ui-g-12">
+                  <div class="ui-g-4">
+                      <label for="title">Title</label>
+                  </div>
+                  <div class="ui-g-8">
+                      <p-dropdown [options]="titles" name="title" #title="ngModel"   id="title"  [(ngModel)]="employee.title" placeholder="Select a Title" optionLabel="name" [filter]="true" filterBy="label,value.name" [showClear]="true" required></p-dropdown>
+                      <p>Selected City: {{employee.title ? employee.title.name : 'none'}}</p>
+                     
+                  </div>
+              </div>
+          </div>
+          <p-footer>
+              <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                  <button type="button" pButton icon="fa fa-close" (click)="delete()" label="Delete"></button>
+                  <button type="submit" [disabled]="!f.valid" pButton icon="fa fa-check" (click)="save()" label="Save" style="margin-left:10px;"></button>
+              </div>
+          </p-footer>
+          
+        </form>
+       
+      </p-dialog>
+    </div>
