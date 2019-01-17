@@ -1,5 +1,5 @@
 <div class="ui-g-12 ui-md-10 margin-header ">
-    <p-table [columns]="cols" [value]="TitleList" selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
+    <p-table [columns]="cols" [value]="TitleList" selectionMode="single" [(selection)]="selectedTitle" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
         <ng-template pTemplate="caption">
             List of Titles
         </ng-template>

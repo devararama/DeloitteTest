@@ -1,6 +1,6 @@
 
   <div class="ui-g-12 ui-md-10 margin-header ">
-      <p-table [columns]="cols" [value]="EmployeeList" selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
+      <p-table [columns]="cols" [value]="EmployeeList" selectionMode="single" [(selection)]="selectedEmployee" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
           <ng-template pTemplate="caption">
               List of EmployeeList
           </ng-template>
