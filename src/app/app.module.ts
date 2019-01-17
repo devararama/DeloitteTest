@@ -18,6 +18,7 @@ import {DialogModule, Dialog} from 'primeng/dialog';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import {DropdownModule} from 'primeng/dropdown';
     FooterComponent,
     SidebarComponent,
     TitlesComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
